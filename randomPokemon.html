@@ -14,6 +14,19 @@
   <button></button>
 
   <script>
+    let btn = document.body.children[1];
+    console.dir(btn);
+    btn.style.width = "50px"
+    btn.style.height = "30px"
+    btn.textContent = "얍";
+    const h1 = document.createElement('h1');
+    let img = document.createElement('img');
+    root.append(h1, img);
+
+
+
+    btn.addEventListener('click', function () {
+
 
     const root = document.getElementById('root');
 
@@ -29,27 +42,19 @@
     xhr.addEventListener('load', function () {
       // console.log(xhr.response);
       const _PokeData = JSON.parse(xhr.response);
-      const h1 = document.createElement('h1');
       console.dir(_PokeData)
 
       const imgURL = _PokeData.sprites.front_default;
-      let img = document.createElement('img');
 
       h1.textContent = _PokeData.name;
       console.dir(_PokeData);
-      root.append(h1, img);
       img.setAttribute("src", imgURL);
+      
     });
 
-    let btn = document.body.children[1];
-    console.dir(btn);
-    btn.style.width = "50px"
-    btn.style.height = "30px"
-    btn.textContent = "얍";
+    
 
-
-    btn.addEventListener('click', function () {
-
+    
       
 
     })
