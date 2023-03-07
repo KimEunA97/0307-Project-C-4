@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="root"></div>
+  <button></button>
+
+  <script>
+
+    const root = document.getElementById('root');
+
+    let num = Math.floor((Math.random() * 1260)) + 1
+
+    const xhr = new XMLHttpRequest();
+    const _URL = `https://pokeapi.co/api/v2/pokemon/${num}`;
+
+
+    xhr.open('GET', _URL);
+    xhr.send();
+
+    xhr.addEventListener('load', function () {
+      // console.log(xhr.response);
+      const _PokeData = JSON.parse(xhr.response);
+      const h1 = document.createElement('h1');
+      console.dir(_PokeData)
+
+      const imgURL = _PokeData.sprites.front_default;
+      let img = document.createElement('img');
+
+      h1.textContent = _PokeData.name;
+      console.dir(_PokeData);
+      root.append(h1, img);
+      img.setAttribute("src", imgURL);
+    });
+
+    let btn = document.body.children[1];
+    console.dir(btn);
+    btn.style.width = "50px"
+    btn.style.height = "30px"
+    btn.textContent = "얍";
+
+
+    btn.addEventListener('click', function () {
+
+      
+
+    })
+
+
+
+
+  </script>
+
+</body>
+
+</html>
